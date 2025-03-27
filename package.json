@@ -1,0 +1,26 @@
+{
+  "name": "front-end-development-notes",
+  "version": "1.0.0",
+  "description": "```ts\r npm install -g ts-node typescript '@types/node'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretty": "prettier --write ./**/* --ignore-unknown",
+    "prettier:watch": "onchange \"./**/*\" -- prettier --write --ignore-unknown {{changed}}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vipulDessai/DSA-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vipulDessai/DSA-playground/issues"
+  },
+  "homepage": "https://github.com/vipulDessai/DSA-playground#readme",
+  "dependencies": {
+    "onchange": "^7.1.0",
+    "prettier": "^3.5.3"
+  }
+}
