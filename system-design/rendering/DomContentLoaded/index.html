@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOMContentLoaded</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="bodyOnLoad(event);">
+    <div class="controls">
+      <button id="reload" type="button">Reload</button>
+    </div>
+    <div class="event-log">
+      <label for="eventLog">Event log:</label>
+      <textarea
+        readonly
+        class="event-log-contents"
+        rows="8"
+        cols="30"
+        id="eventLog"
+      ></textarea>
+    </div>
+    <!-- add the event listeners once the entire HTML is parsed -->
+    <script src="./script.js"></script>
+  </body>
+</html>
