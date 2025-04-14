@@ -4,17 +4,17 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 import "./index.css";
 
-import App from "./App/App.tsx";
-import Contact from "./Contact/Contact.tsx";
+import GetBy from "./GetBy/GetBy";
+import QueryBy from "./QueryBy/QueryBy";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <GetBy />,
   },
   {
-    path: "/Contact",
-    element: <Contact />,
+    path: "/QueryBy",
+    element: <QueryBy />,
   },
 ]);
 

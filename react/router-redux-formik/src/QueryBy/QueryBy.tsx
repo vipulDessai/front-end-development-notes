@@ -1,13 +1,13 @@
 import { FormEvent, useState } from "react";
 
-import "./Contact.css";
+import "./QueryBy.css";
 
 interface FormValues {
   email: string;
   password?: string; // Password is optional here, adjust as needed
 }
 
-function Contact() {
+function QueryBy() {
   const [showPopup, setShowPopup] = useState(false);
   const [formValues, setFormValues] = useState<FormValues>({
     email: "",
@@ -133,4 +133,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default QueryBy;

@@ -387,3 +387,6 @@ FodyWeavers.xsd
 # python
 .idea
 my-env
+
+# test
+coverage
