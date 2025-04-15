@@ -1,12 +1,12 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import Contact from "./Contact";
+import LegacyLogin from "./LegacyLogin";
 
-describe("Contact component", () => {
+describe("LegacyLogin component", () => {
   it("should allow user input and handle submit", async () => {
     // 1. Render the component
-    render(<Contact />);
+    render(<LegacyLogin />);
 
     // 2. Get the input elements
     const emailInput = screen.getByLabelText(/Email/i) as HTMLInputElement; //Added type assertion

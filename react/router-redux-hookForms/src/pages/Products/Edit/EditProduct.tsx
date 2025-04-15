@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 
-import "./App.css";
+import "./EditProduct.css";
 
 interface FormData {
   firstName: string;
@@ -100,7 +100,7 @@ function isInputElement(
   return event.target instanceof HTMLInputElement;
 }
 
-function App() {
+function EditProduct() {
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -516,4 +516,4 @@ function App() {
   );
 }
 
-export default App;
+export default EditProduct;

@@ -1,18 +1,10 @@
-import { FC, ReactNode, StrictMode, Suspense } from "react";
+import { StrictMode, Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
-import {
-  createBrowserRouter,
-  Outlet,
-  RouterProvider,
-  useLoaderData,
-} from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import { Provider } from "react-redux";
 
 import "./index.css";
 
-import App from "./Components/App/App";
-import Contact from "./Components/Contact/Contact";
-import Login from "./Components/Login/Login";
 import { store } from "./reducer";
 import {
   RequireAuth,
@@ -20,22 +12,12 @@ import {
   RoutingErrorPage,
   UnauthorizedPage,
 } from "./router";
-import { useInit } from "./hooks";
 
-function Root() {
-  // Use the rootLoaderData if common data needs to be fetched
-  const rootLoaderData = useLoaderData();
-
-  useInit(() => {
-    // Begin code
-  });
-
-  return (
-    <section className="lapps-ui-react-latest">
-      <Outlet />
-    </section>
-  );
-}
+const Login = lazy(() => import("./pages/Login/EnhancedLogin/Login"));
+const LegacyLogin = lazy(() => import("./pages/Login/LegacyLogin/LegacyLogin"));
+const Products = lazy(() => import("./pages/Products/Edit/EditProduct"));
+const EditProduct = lazy(() => import("./pages/Products/Edit/EditProduct"));
+const Account = lazy(() => import("./pages/Account/Account"));
 
 const LazyLoader = () => {
   return (
@@ -46,36 +28,74 @@ const LazyLoader = () => {
 };
 
 const router = createBrowserRouter([
+  // Products
   {
     path: "/",
-    element: <Root />,
+    element: (
+      <RequireAuth>
+        <Suspense fallback={<LazyLoader />}>
+          <Products />
+        </Suspense>
+      </RequireAuth>
+    ),
     errorElement: <RoutingErrorPage />,
     loader: rootloader,
     children: [
       {
-        path: "dashboard",
+        path: "edit",
         element: (
           <RequireAuth>
             <Suspense fallback={<LazyLoader />}>
-              <App />
+              <EditProduct />
             </Suspense>
           </RequireAuth>
         ),
       },
+    ],
+  },
+  {
+    path: "/account",
+    element: (
+      <RequireAuth>
+        <Suspense fallback={<LazyLoader />}>
+          <Account />
+        </Suspense>
+      </RequireAuth>
+    ),
+    errorElement: <RoutingErrorPage />,
+    loader: rootloader,
+  },
+  {
+    path: "/login",
+    element: (
+      <Suspense fallback={<LazyLoader />}>
+        <Login />
+      </Suspense>
+    ),
+    errorElement: <RoutingErrorPage />,
+    loader: rootloader,
+    children: [
       {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-      {
-        // use UnauthorizedScreen
-        path: "unauthorized",
-        element: <UnauthorizedPage />,
+        path: "legacy-login",
+        element: (
+          <RequireAuth>
+            <Suspense fallback={<LazyLoader />}>
+              <LegacyLogin />
+            </Suspense>
+          </RequireAuth>
+        ),
       },
     ],
+  },
+  {
+    path: "/unauthorized",
+    element: (
+      <Suspense fallback={<LazyLoader />}>
+        <UnauthorizedPage />
+      </Suspense>
+    ),
+    errorElement: <RoutingErrorPage />,
+    loader: rootloader,
   },
 ]);
 

@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import App from "./App";
+import EditProduct from "./EditProduct";
 
 describe("Dasboard", () => {
   it("Loads", () => {
-    render(<App />);
+    render(<EditProduct />);
 
     const formH2Elem = screen.getByText(/HTML Input Elements in a React Form/i);
     expect(formH2Elem).toBeInTheDocument();
