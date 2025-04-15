@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import GetBy from "./GetBy";
+import GetBy from "./App";
 
 describe("types of queries - GetBy", () => {
   it("getBy...", () => {

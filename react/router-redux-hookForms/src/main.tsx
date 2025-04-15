@@ -4,17 +4,22 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 import "./index.css";
 
-import GetBy from "./GetBy/GetBy";
-import QueryBy from "./QueryBy/QueryBy";
+import App from "./App/App";
+import Contact from "./Contact/Contact";
+import Login from "./Login/Login.spec";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <GetBy />,
+    element: <App />,
   },
   {
-    path: "/QueryBy",
-    element: <QueryBy />,
+    path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/Contact",
+    element: <Contact />,
   },
 ]);
 

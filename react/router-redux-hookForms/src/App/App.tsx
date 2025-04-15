@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 
-import "./GetBy.css";
+import "./App.css";
 
 interface FormData {
   firstName: string;
@@ -100,7 +100,7 @@ function isInputElement(
   return event.target instanceof HTMLInputElement;
 }
 
-function GetBy() {
+function App() {
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -516,4 +516,4 @@ function GetBy() {
   );
 }
 
-export default GetBy;
+export default App;

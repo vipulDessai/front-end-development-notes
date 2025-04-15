@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import QueryBy from "./QueryBy";
+import QueryBy from "./Contact";
 
 describe("App component", () => {
   it("should allow user input and handle submit", async () => {
