@@ -12,7 +12,9 @@ export default function Login() {
     watch,
     formState: { errors },
   } = useForm<LoginInputs>();
-  const onSubmit: SubmitHandler<LoginInputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<LoginInputs> = (data) => {
+    console.log(data);
+  };
 
   console.log(watch("userNameOrEmail")); // watch input value by passing the name of it
 

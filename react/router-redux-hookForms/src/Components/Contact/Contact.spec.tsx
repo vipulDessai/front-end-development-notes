@@ -1,12 +1,12 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import QueryBy from "./Contact";
+import Contact from "./Contact";
 
-describe("App component", () => {
+describe("Contact component", () => {
   it("should allow user input and handle submit", async () => {
     // 1. Render the component
-    render(<QueryBy />);
+    render(<Contact />);
 
     // 2. Get the input elements
     const emailInput = screen.getByLabelText(/Email/i) as HTMLInputElement; //Added type assertion

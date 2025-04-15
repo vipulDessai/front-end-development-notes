@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 
-import GetBy from "./App";
+import App from "./App";
 
-describe("types of queries - GetBy", () => {
-  it("getBy...", () => {
-    render(<GetBy />);
+describe("Dasboard", () => {
+  it("Loads", () => {
+    render(<App />);
 
     const formH2Elem = screen.getByText(/HTML Input Elements in a React Form/i);
     expect(formH2Elem).toBeInTheDocument();
