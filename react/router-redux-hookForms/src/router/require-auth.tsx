@@ -17,7 +17,7 @@ interface REQUIRE_AUTH_TYPE {
 export const RequireAuth: FC<REQUIRE_AUTH_TYPE> = ({ children }) => {
   const dispatch = useDispatch();
   const location = useLocation();
-
+  
   const authUserData = useSelector(
     (state: ROOT_STORE_TYPE) => state.auth.userAuthData,
   );
